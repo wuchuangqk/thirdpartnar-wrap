@@ -5,5 +5,8 @@ const path = require('path');
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  alias: { '@': path.resolve(__dirname, 'src') }
+  alias: { '@': path.resolve(__dirname, 'src') },
+  server: {
+    host: '192.168.0.105'
+  }
 })

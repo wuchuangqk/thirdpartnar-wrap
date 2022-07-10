@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import 'element-plus/dist/index.css';
+@import './app.scss';
+html {
+  line-height: 1;
+}
+
+body {
+  font-family: PingFang SC;
+  font-size: 14px;
+}
