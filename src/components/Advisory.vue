@@ -76,8 +76,10 @@ const submit = () => {
   font-weight: bold;
   color: #FFFFFF;
   position: fixed;
+  z-index: 9;
   right: .16rem;
   top: 6rem;
+  padding: 0 .10rem;
 }
 
 .dialog {

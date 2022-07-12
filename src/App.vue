@@ -11,5 +11,7 @@ import Advisory from './components/Advisory.vue';
 
 </script>
 <style>
-
+#app {
+  padding-top: 1rem;
+}
 </style>

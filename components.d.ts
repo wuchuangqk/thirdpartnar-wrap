@@ -9,12 +9,16 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Advisory: typeof import('./src/components/Advisory.vue')['default']
     Banner: typeof import('./src/components/Banner.vue')['default']
+    Card: typeof import('./src/components/Card.vue')['default']
     Collapse: typeof import('./src/components/Collapse/Collapse.vue')['default']
     CollapseItem: typeof import('./src/components/Collapse/CollapseItem.vue')['default']
+    Flow: typeof import('./src/components/Flow.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Head: typeof import('./src/components/Head.vue')['default']
+    Introduce: typeof import('./src/components/Introduce.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Team: typeof import('./src/components/Team.vue')['default']
     Title: typeof import('./src/components/Title.vue')['default']
   }
 }

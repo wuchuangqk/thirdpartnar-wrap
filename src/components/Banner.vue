@@ -7,13 +7,12 @@
 </template>
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import { loadImg } from '@/utils'
 
 defineProps<{
   imgs: string[]
 }>()
-const loadImg = (url: string) => {
-  return new URL(`/src/assets/${url}`, import.meta.url).href;
-};
+
 </script>
 
 <style lang="scss" scoped>

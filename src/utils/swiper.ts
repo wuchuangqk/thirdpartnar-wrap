@@ -1,3 +1,3 @@
-import Swiper, { Pagination } from "swiper";
+import Swiper, { Pagination, Navigation } from "swiper";
 
-Swiper.use([Pagination]);
+Swiper.use([Pagination, Navigation]);
