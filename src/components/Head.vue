@@ -98,7 +98,7 @@ import { useRouter } from 'vue-router';
 import Collapse from './Collapse/Collapse.vue';
 import CollapseItem from './Collapse/CollapseItem.vue';
 const router = useRouter()
-const menuVisible = ref(true)
+const menuVisible = ref(false)
 </script>
 
 <style scoped lang="scss">

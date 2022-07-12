@@ -1,13 +1,6 @@
 <template>
   <div>
-    <swiper :style="{ height: 3 + 'rem' }" loop>
-      <swiper-slide>
-        <img src="../assets/bannner_2@2x.png" alt="">
-      </swiper-slide>
-      <swiper-slide>
-        <img src="../assets/xxlgg@2x.png" alt="">
-      </swiper-slide>
-    </swiper>
+    <Banner :imgs="['bannner_1@2x.png', 'bannner_2@2x.png']" />
     <div class="grid gap-12 grid-cols-4 px-12 mt-26 mb-70">
       <div class="div1">
         <img src="../assets/jiangbei@2x.png" alt="" class="img1">
@@ -40,8 +33,7 @@
     </div>
     <Title title="业务范围" en="SCOPE OF BUSINESS" />
     <div class=" overflow-auto px-16 pb-16 flex flex-nowrap app-hide-bar">
-      <div v-for="item in links" :key="item.label" class="link" :class="{ active: item.label === activeLink }"
-        @click="router.push(item.path)">{{ item.label }}</div>
+      <div v-for="item in links" :key="item.label" class="link" :class="{ active: item.label === activeLink }">{{ item.label }}</div>
     </div>
     <p class="color-595959 px-20 mt-36 p1">
       现有主流的应用商店广告包括：iOS、华为、vivo、oppo、小米、360推广等，苹果ASA广告是通过关键词竞价的方式，在AppStore搜索结果的顶部展示广告。安卓CPD广告是按照下载收费的方式，在安卓应用市场（华为、小米、oppo、vivo）搜索、推荐、活动区展示广告。
@@ -112,29 +104,34 @@
     </div>
     <img src="../assets/ditu.webp" alt="" class="map">
     <div>
-      <p>恭喜您获得免费诊断账户</p>
-      <p>请填写您的真实信息，以便我们根据客观情况，定制可行方案</p>
-      <div>
-        <label class="label">姓名</label>
-        <input type="text" class="input" placeholder="请输入您的姓名">
+      <p class="fs-30 text-center font-bold">恭喜您获得免费诊断账户</p>
+      <p class="color-919191 fs-20 text-center mt-30">请填写您的真实信息，以便我们根据客观情况，定制可行方案</p>
+      <div class="form-wrap px-68">
+        <div>
+          <label class="label">姓名</label>
+          <input v-model="formData.name" type="text" class="input" placeholder="请输入您的姓名">
+        </div>
+        <div>
+          <label class="label">手机号</label>
+          <input v-model="formData.phone" type="text" class="input" placeholder="请输入您的手机号">
+        </div>
+        <div>
+          <label class="label">其他备注信息</label>
+          <textarea v-model="formData.remark" class="textarea input" rows="5" placeholder="请输入您的备注信息"></textarea>
+        </div>
+        <button class="btn" @click="submit">提交</button>
       </div>
-      <div>
-        <label class="label">手机号</label>
-        <input type="text" class="input" placeholder="请输入您的手机号">
-      </div>
-      <div>
-        <label class="label">其他备注信息</label>
-        <textarea class="textarea" placeholder="请输入您的备注信息"></textarea>
-      </div>
-      <button class="btn">提交</button>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Swiper, SwiperSlide } from 'swiper/vue';
 import Title from '@/components/Title.vue';
 import { useRouter } from 'vue-router';
+import { Toast } from 'vant';
+import axios from 'axios'
+import qs from 'qs'
+import Banner from '@/components/Banner.vue';
 
 const router = useRouter()
 const links = [
@@ -145,23 +142,35 @@ const links = [
   { label: '关于我们', path: '' },
 ]
 const activeLink = '信息流广告代运营'
+const formData = ref({
+  name: '',
+  phone: '',
+  remark: '',
+})
+const submit = () => {
+  if (!formData.value.name.trim()) return Toast('请输入您的姓名');
+  if (!/^1[0-9]{10}$/.test(formData.value.phone)) return Toast('手机号格式有误');
+  const loading = Toast.loading({
+    message: '正在提交',
+    forbidClick: true,
+    loadingType: 'spinner',
+  });
+  axios({
+    url: 'http://nad.bdhuoke.com/other/dyy/add',
+    method: 'post',
+    params: qs.stringify(formData.value),
+  }).then(res => {
+    loading.clear()
+    if (res.data.code !== 1) return Toast(res.data.msg)
+    Toast('提交成功,客服会尽快与您联系')
+  }).catch((err) => {
+    loading.clear()
+    Toast(err)
+  })
+}
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.swiper-pagination-bullet) {
-  width: .07rem;
-  height: .07rem;
-  background: #B3B3B3;
-  border-radius: 50%;
-  opacity: 1;
-}
-
-::v-deep(.swiper-pagination-bullet.swiper-pagination-bullet-active) {
-  width: .27rem;
-  background: #FFFFFF;
-  border-radius: .04rem;
-}
-
 .div1 {
   background: #EEF2F8;
   border-radius: .09rem;
@@ -297,5 +306,48 @@ const activeLink = '信息流广告代运营'
   margin: .62rem auto 1.07rem;
   width: 7.23rem;
   height: 4.72rem;
+}
+
+.color-919191 {
+  color: #919191;
+}
+
+.form-wrap {
+  margin-top: .66rem;
+
+  .label {
+    font-size: .24rem;
+    margin-bottom: .12rem;
+    display: block;
+  }
+
+  .input {
+    height: .8rem;
+    border: 1px solid #BFBFBF;
+    outline: none;
+    width: 100%;
+    margin-bottom: .26rem;
+    font-size: .2rem;
+    padding: 0 .1rem;
+
+    &::placeholder {
+      color: #909090;
+    }
+  }
+
+  .textarea {
+    height: auto;
+    resize: none;
+    padding-top: .2rem;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    height: .8rem;
+    background: #4285F4;
+    color: white;
+    font-size: .28rem;
+  }
 }
 </style>

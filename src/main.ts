@@ -4,6 +4,7 @@ import { router } from '@/router'
 import './utils/rem'
 import './styles/index.scss'
 import './utils/swiper'
+import 'vant/es/toast/style';
 
 const app = createApp(App)
 
