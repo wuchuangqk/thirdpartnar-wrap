@@ -71,6 +71,9 @@ const submit = () => {
   }).then(res => {
     loading.clear()
     if (res.data.code !== 1) return Toast(res.data.msg)
+    formData.value.name = ''
+    formData.value.phone = ''
+    formData.value.remark = ''
     Toast('提交成功,客服会尽快与您联系')
   }).catch((err) => {
     loading.clear()
