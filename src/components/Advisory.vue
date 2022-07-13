@@ -5,8 +5,8 @@
   <!-- 弹窗 -->
   <div v-show="visible" class="dialog">
     <div ref="targetRef" class="dialog-main">
-      <img src="../assets/yiizsdyy@2x.png" alt="" class="img1">
-      <img src="../assets/close-bold@2x.png" alt="" class="close" @click="visible = false">
+      <img src="../assets/yiizsdyy@2x.webp" alt="" class="img1">
+      <img src="../assets/close-bold@2x.webp" alt="" class="close" @click="visible = false">
       <div class=" text-center">
         <p class="fs-28 mt-30">免费诊断账户，领取运营方案</p>
         <p class="desc">10年+互联网行业经验, <br />1000+客户的选择</p>

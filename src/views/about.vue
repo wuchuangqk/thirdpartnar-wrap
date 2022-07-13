@@ -10,10 +10,10 @@
       火客是一家集资源整合，优质货源，销售渠道，资源互换，招商加盟，线下广告，线下场地，免费福利，新媒体账号转让，网站转让，域名转让，异业合作，项目对接，流量变现，投放广告等一体的综合性资源平台，平台成立至今成交项目达上万余个，在广告主寻找乙方以及流量主寻找甲方的对接中体现出了强大的资源整合实力。
     </p>
     <div class="flex px-14 mt-50 mb-40">
-      <img src="../assets/tu1@2x.png" alt="" class="mr-12 img1">
+      <img src="../assets/tu1@2x.webp" alt="" class="mr-12 img1">
       <div>
-        <img src="../assets/tu2@2x.png" alt="" class="mb-12 img2">
-        <img src="../assets/tu3@2x.png" alt="" class="img3">
+        <img src="../assets/tu2@2x.webp" alt="" class="mb-12 img2">
+        <img src="../assets/tu3@2x.webp" alt="" class="img3">
       </div>
     </div>
     <div class="div2">
@@ -36,7 +36,7 @@ import Title from '@/components/Title.vue';
 <style lang="scss" scoped>
 .banner {
   height: 3rem;
-  background: url('@/assets/guanyu-@2x.png') no-repeat;
+  background: url('@/assets/guanyu-@2x.webp') no-repeat;
   background-size: contain;
   text-align: center;
   padding-top: .97rem;

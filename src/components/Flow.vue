@@ -1,7 +1,7 @@
 <template>
   <div>
     <Title title="合作流程" en="COOPERATION PROCESS" />
-    <img src="../assets/liuchen_@2x.png" alt="" class="img4">
+    <img src="../assets/liuchen_@2x.webp" alt="" class="img4">
     <dl class="list">
       <dt class="list-title">1、初步电话沟通并免费账户诊断</dt>
       <dd class="list-item">商务人员会通过电话与您初步沟通，征得您的同意会远程对您的竞价账号进行诊断，优化师会根据您的账户过往数据，免费对您的账户进行系统全面得分析诊断。</dd>

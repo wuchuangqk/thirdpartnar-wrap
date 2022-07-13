@@ -1,7 +1,7 @@
 <template>
   <div class="p-20 flex items-center justify-between relative header-wrap">
-    <img src="../assets/logo@2x.png" alt="" class="img1">
-    <img src="../assets/caidan@2x.png" alt="" class="img2" @click="menuVisible = !menuVisible">
+    <img src="../assets/logo@2x.webp" alt="" class="img1">
+    <img src="../assets/caidan@2x.webp" alt="" class="img2" @click="menuVisible = !menuVisible">
     <Collapse v-if="menuVisible" class="collapse">
       <CollapseItem name="1">
         <template #header>

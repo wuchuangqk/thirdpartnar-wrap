@@ -3,7 +3,7 @@
     <slot name="header">
       <p class="flex fs-30 items-center" @click="handleClick">
         <span>{{ title }}</span>
-        <img src="../../assets/xiala@2x.png" alt="" class="arrow">
+        <img src="../../assets/xiala@2x.webp" alt="" class="arrow">
       </p>
     </slot>
     <transition name="collapse-transition" @before-enter="beforeEnter" @enter="enter" @after-enter="collapseAfterEnter"
